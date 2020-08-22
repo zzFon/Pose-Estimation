@@ -1,0 +1,11 @@
+算法接口
+tic;viewAngleCheck('../sample-input-images/successful');toc;
+    runningVote(filename=currPic,withFilter=1) 主函数
+        correctEncoding = decodeFilename(filename) 将文件名转换为正确编码ground truth
+        [labeled, nred, nblue] = labelRBPix(filename,withFilter)
+            [r,b] = rbSegmentRGB(RGB) 按预定R和B的HSV阈值将图像二值化1/0
+            dofMask = depthOfFieldMask(RGB) 按预定RGB阈值进行滤波+形态学运算+滤除小连通域得到dofMask
+
+
+注：
+文件名的二进制即是编码
